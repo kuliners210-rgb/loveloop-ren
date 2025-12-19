@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    perspective: 1000px;
+}
+
+#ui {
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotateY(0deg) rotateX(20deg); }
+    to   { transform: rotateY(360deg) rotateX(20deg); }
+}
+
+.love_word {
+    color: #ea80b0;
+    font-size: 1.4rem;
+    text-shadow: 0 0 10px #fff;
+    letter-spacing: 2px;
+    white-space: nowrap;
+    position: absolute;
+    transform-origin: 0 50%;
+    transform: translateY(-100%) rotateZ(-30deg);
+}
+
+.love_horizontal {
+    animation: horizontal 10000ms infinite alternate ease-in-out;
+    animation-delay: calc(var(--i) * -300ms);
+}
+
+@keyframes horizontal {
+    0% { transform: translateY(-100%) rotateZ(-30deg) translateX(0); }
+    100% { transform: translateY(-100%) rotateZ(-30deg) translateX(20px); }
+}
